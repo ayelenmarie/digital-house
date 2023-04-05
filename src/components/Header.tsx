@@ -13,10 +13,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: "avenir-bold",
+    lineHeight: 27.32,
   },
   name: {
     fontFamily: "avenir",
     fontSize: 16,
+    lineHeight: 21.86,
   },
 });
 

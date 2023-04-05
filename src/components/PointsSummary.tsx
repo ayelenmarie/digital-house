@@ -34,16 +34,18 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   month: {
+    fontFamily: "avenir-bold",
     color: "white",
     fontSize: 16,
-    fontWeight: "800",
+    lineHeight: 22,
   },
   points: {
+    fontFamily: "avenir-bold",
     marginTop: 7,
     color: "white",
     textAlign: "center",
     fontSize: 32,
-    fontWeight: "800",
+    lineHeight: 44,
   },
 });
 
