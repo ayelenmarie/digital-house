@@ -1,7 +1,17 @@
 import { Pressable, PressableProps, StyleSheet } from "react-native";
 
-const CustomButton = ({ ...props }: PressableProps) => {
-  return <Pressable style={styles.button} {...props} />;
+import CustomText from "./CustomText";
+
+interface Props {
+  buttonText: string;
+}
+
+const CustomButton = ({ buttonText, ...props }: Props & PressableProps) => {
+  return (
+    <Pressable style={styles.button} {...props}>
+      <CustomText style={styles.buttonText}>{buttonText}</CustomText>
+    </Pressable>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -11,6 +21,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
+  },
+  buttonText: {
+    fontFamily: "avenir-bold",
+    color: "#FFFFFF",
+    fontSize: 16,
   },
 });
 

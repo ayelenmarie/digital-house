@@ -1,13 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
+import CategoryText from "./CategoryText";
 import PointMovementItem from "./PointMovementItem";
 
 const PointMovementsList = () => {
   return (
     <View style={styles.container}>
-      <Text>TUS MOVIMIENTOS</Text>
+      <CategoryText>TUS MOVIMIENTOS</CategoryText>
       <View style={styles.contentContainer}>
-        <PointMovementItem />
+        <PointMovementItem onPress={() => {}} />
       </View>
     </View>
   );

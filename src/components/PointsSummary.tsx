@@ -1,21 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+
+import CategoryText from "./CategoryText";
+import CustomText from "./CustomText";
 
 const PointsSummary = () => {
   return (
     <View style={styles.container}>
-      <Text>TUS PUNTOS</Text>
+      <CategoryText>TUS PUNTOS</CategoryText>
       <View style={styles.box}>
-        <Text style={styles.month}>Diciembre</Text>
-        <Text style={styles.points}>10,00.00 pts</Text>
+        <CustomText style={styles.month}>Diciembre</CustomText>
+        <CustomText style={styles.points}>10,00.00 pts</CustomText>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
-  },
+  container: {},
   box: {
     width: 268,
     height: 143,
