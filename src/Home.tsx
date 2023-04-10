@@ -64,7 +64,7 @@ const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
     <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
       <View style={styles.contentContainer}>
         <Header />
-        <PointsSummary points={accumulatedPoints} />
+        <PointsSummary points={accumulatedPoints} isLoading={isLoading} />
         <PointMovementsList
           list={filteredData as Product[]}
           error={error}

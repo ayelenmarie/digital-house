@@ -1,18 +1,27 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
 
 import CategoryText from "./CategoryText";
 import CustomText from "./CustomText";
 
-const PointsSummary = ({ points }: { points: number }) => {
+const PointsSummary = ({
+  points,
+  isLoading,
+}: {
+  points: number;
+  isLoading: boolean;
+}) => {
   const formattedPoints = points.toLocaleString("en-US");
   return (
     <View style={styles.container}>
       <CategoryText>TUS PUNTOS</CategoryText>
       <View style={styles.box}>
         <CustomText style={styles.month}>Diciembre</CustomText>
-        <CustomText
-          style={styles.points}
-        >{`${formattedPoints} pts`}</CustomText>
+        {!isLoading && (
+          <CustomText
+            style={styles.points}
+          >{`${formattedPoints} pts`}</CustomText>
+        )}
+        {isLoading && <ActivityIndicator color="#FFFFFF" size="large" />}
       </View>
     </View>
   );

@@ -1,6 +1,7 @@
 import { View, StyleSheet, FlatList, Platform } from "react-native";
 
 import CategoryText from "./CategoryText";
+import ListFooter from "./ListFooter";
 import PointMovementItem from "./PointMovementItem";
 import { HomeScreenNavigationProp } from "../Home";
 import { Product } from "../types";
@@ -27,6 +28,9 @@ const PointMovementsList = ({ list, error, isLoading, navigation }: Props) => {
           />
         )}
         contentContainerStyle={{ paddingBottom: 20 }}
+        ListFooterComponent={() => (
+          <ListFooter isLoading={isLoading} error={error} />
+        )}
       />
     </View>
   );
