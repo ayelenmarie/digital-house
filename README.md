@@ -11,6 +11,16 @@ This is a redeem points app done in React Native and Typescript with Expo.
 
 All done! You will now have the application up and running on your mobile device.
 
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/36776624/230995258-a07dfebb-fc02-4a51-bd8a-155649a022d1.png)
+![image](https://user-images.githubusercontent.com/36776624/230995311-356a1e70-184f-484e-a8dd-c3168c060e69.png)
+![image](https://user-images.githubusercontent.com/36776624/230995331-a3b547bb-7ffc-463d-800f-2a4c2faa4b10.png)
+![image](https://user-images.githubusercontent.com/36776624/230995365-ee620631-10c7-46d0-a138-f20f203bf2e5.png)
+
+https://user-images.githubusercontent.com/36776624/230995778-7b8a73e1-5681-4bca-8fbe-783d09f65c11.mov
+
+
 ## General considerations
 
 - I decided to go with Expo instead of rn-cli for the app to be easier to test, but I'd probably have preferred to use rn-cli for a project that would go into production stages.
