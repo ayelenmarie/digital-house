@@ -1,3 +1,5 @@
+import { getMonth } from "date-fns";
+import { filter, reduce } from "lodash";
 import useSWR from "swr";
 
 import { ProductQuery } from "../types";
@@ -12,7 +14,12 @@ export const useProducts = () => {
     fetcher
   );
 
-  const cleanedData = data?.map((item) => {
+  // I've decided to filter only December dates to match Figma requirements
+  const filteredData = filter(data, (item) => {
+    return getMonth(new Date(item.createdAt)) === 11;
+  });
+
+  const cleanedData = filteredData?.map((item) => {
     return {
       createdAt: item.createdAt,
       product: item.product,
@@ -23,8 +30,20 @@ export const useProducts = () => {
     };
   });
 
+  const accumulatedPoints = reduce(
+    cleanedData,
+    (prev, current) => {
+      if (current.isRedemption) {
+        return prev - current.points;
+      }
+      return prev + current.points;
+    },
+    0
+  );
+
   return {
     data: cleanedData,
+    accumulatedPoints,
     error,
     isLoading,
   };

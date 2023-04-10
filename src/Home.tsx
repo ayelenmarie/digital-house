@@ -24,7 +24,7 @@ type NavigationProps = NativeStackScreenProps<RootStackParamList, "Home">;
 export type HomeScreenNavigationProp = NavigationProps["navigation"];
 
 const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
-  const { data, error, isLoading } = useProducts();
+  const { data, accumulatedPoints, error, isLoading } = useProducts();
   const [loaded] = useFonts({
     avenir: require("../assets/fonts/Avenir_Roman.otf"),
     "avenir-bold": require("../assets/fonts/Avenir_Black.otf"),
@@ -44,7 +44,7 @@ const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
     <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
       <View style={styles.contentContainer}>
         <Header />
-        <PointsSummary />
+        <PointsSummary points={accumulatedPoints} />
         <PointMovementsList
           list={data as Product[]}
           error={error}

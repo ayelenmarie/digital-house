@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, Platform } from "react-native";
 
 import CategoryText from "./CategoryText";
 import PointMovementItem from "./PointMovementItem";
@@ -26,6 +26,7 @@ const PointMovementsList = ({ list, error, isLoading, navigation }: Props) => {
             onPress={() => navigation.navigate("ProductDetails", { item })}
           />
         )}
+        contentContainerStyle={{ paddingBottom: 20 }}
       />
     </View>
   );
@@ -33,14 +34,13 @@ const PointMovementsList = ({ list, error, isLoading, navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "62%",
+    height: Platform.OS === "ios" ? "62%" : "48%",
   },
   contentContainer: {
     backgroundColor: "#FFFFFF",
     paddingHorizontal: 10,
     paddingVertical: 20,
-    marginBottom: 43,
-    paddingBottom: 20,
+    marginBottom: Platform.OS === "ios" ? 43 : 23,
     borderRadius: 10,
   },
 });

@@ -3,13 +3,16 @@ import { View, StyleSheet } from "react-native";
 import CategoryText from "./CategoryText";
 import CustomText from "./CustomText";
 
-const PointsSummary = () => {
+const PointsSummary = ({ points }: { points: number }) => {
+  const formattedPoints = points.toLocaleString("en-US");
   return (
     <View style={styles.container}>
       <CategoryText>TUS PUNTOS</CategoryText>
       <View style={styles.box}>
         <CustomText style={styles.month}>Diciembre</CustomText>
-        <CustomText style={styles.points}>10,00.00 pts</CustomText>
+        <CustomText
+          style={styles.points}
+        >{`${formattedPoints} pts`}</CustomText>
       </View>
     </View>
   );
