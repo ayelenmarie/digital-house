@@ -1,3 +1,4 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -9,10 +10,20 @@ import Header from "./components/Header";
 import PointMovementsList from "./components/PointMovementsList";
 import PointsSummary from "./components/PointsSummary";
 import { useProducts } from "./hooks/useProducts";
+import { Product } from "./types";
 
 SplashScreen.preventAutoHideAsync();
 
-const Home = ({ navigation }) => {
+export type RootStackParamList = {
+  Home: undefined;
+  ProductDetails: { item: Product };
+};
+
+type NavigationProps = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export type HomeScreenNavigationProp = NavigationProps["navigation"];
+
+const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
   const { data, error, isLoading } = useProducts();
   const [loaded] = useFonts({
     avenir: require("../assets/fonts/Avenir_Roman.otf"),
@@ -35,10 +46,10 @@ const Home = ({ navigation }) => {
         <Header />
         <PointsSummary />
         <PointMovementsList
-          list={data}
+          list={data as Product[]}
           error={error}
           isLoading={isLoading}
-          onItemPress={() => navigation.navigate("ProductDetails")}
+          navigation={navigation}
         />
         <CustomButton buttonText="Todos" />
         <StatusBar style="auto" />

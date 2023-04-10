@@ -2,16 +2,17 @@ import { View, StyleSheet, FlatList } from "react-native";
 
 import CategoryText from "./CategoryText";
 import PointMovementItem from "./PointMovementItem";
+import { HomeScreenNavigationProp } from "../Home";
 import { Product } from "../types";
 
 interface Props {
   list: Product[];
   error: Error;
   isLoading: boolean;
-  onItemPress: () => void;
+  navigation: HomeScreenNavigationProp;
 }
 
-const PointMovementsList = ({ list, error, isLoading, onItemPress }: Props) => {
+const PointMovementsList = ({ list, error, isLoading, navigation }: Props) => {
   return (
     <View style={styles.container}>
       <CategoryText>TUS MOVIMIENTOS</CategoryText>
@@ -22,7 +23,7 @@ const PointMovementsList = ({ list, error, isLoading, onItemPress }: Props) => {
           <PointMovementItem
             item={item}
             key={item.id}
-            onPress={() => onItemPress()}
+            onPress={() => navigation.navigate("ProductDetails", { item })}
           />
         )}
       />
