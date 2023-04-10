@@ -1,5 +1,12 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { View, Text, SafeAreaView, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 
 import { RootStackParamList } from "./Home";
 import CustomButton from "./components/CustomButton";
@@ -14,28 +21,30 @@ const ProductDetails = ({ route, navigation }: Props) => {
   console.log(route);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={{ uri: image }} />
-        </View>
-        <Text style={styles.title}>Detalles del producto:</Text>
-        <Text style={styles.productDetailsDate}>{`Comprado el ${formatDate(
-          createdAt
-        )}`}</Text>
-        <Text style={styles.title}>Con esta compra acumulaste:</Text>
-        <Text style={styles.points}>{`${points} puntos`}</Text>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        justifyContent: "space-between",
+        paddingBottom: 20,
+      }}
+    >
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={{ uri: image }} />
       </View>
+      <Text style={styles.title}>Detalles del producto:</Text>
+      <Text style={styles.productDetailsDate}>{`Comprado el ${formatDate(
+        createdAt
+      )}`}</Text>
+      <Text style={styles.title}>Con esta compra acumulaste:</Text>
+      <Text style={styles.points}>{`${points} puntos`}</Text>
       <CustomButton buttonText="Aceptar" onPress={() => navigation.goBack()} />
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    marginHorizontal: 20,
-    justifyContent: "space-between",
+    paddingHorizontal: 20,
   },
   imageContainer: {
     width: 353,
@@ -73,6 +82,7 @@ const styles = StyleSheet.create({
   },
   points: {
     marginTop: 32,
+    marginBottom: 30,
     fontFamily: "avenir-bold",
     fontSize: 24,
     lineHeight: 32.78,

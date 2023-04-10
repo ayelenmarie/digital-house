@@ -2,10 +2,11 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { useCallback } from "react";
+import { filter } from "lodash";
+import { useCallback, useState } from "react";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 
-import CustomButton from "./components/CustomButton";
+import ButtonFilters, { Filter } from "./components/ButtonFilters";
 import Header from "./components/Header";
 import PointMovementsList from "./components/PointMovementsList";
 import PointsSummary from "./components/PointsSummary";
@@ -25,9 +26,28 @@ export type HomeScreenNavigationProp = NavigationProps["navigation"];
 
 const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
   const { data, accumulatedPoints, error, isLoading } = useProducts();
+  const [selectedFilter, setSelectedFilter] = useState(Filter.ALL);
   const [loaded] = useFonts({
     avenir: require("../assets/fonts/Avenir_Roman.otf"),
     "avenir-bold": require("../assets/fonts/Avenir_Black.otf"),
+  });
+
+  const handleSelectedFilter = (filter: Filter) => {
+    setSelectedFilter(filter);
+  };
+
+  const filteredData = filter(data, (item: Product) => {
+    if (selectedFilter === Filter.ALL) {
+      return item;
+    }
+
+    if (selectedFilter === Filter.GAINED) {
+      return !item.isRedemption;
+    }
+
+    if (selectedFilter === Filter.REDEEMED) {
+      return item.isRedemption;
+    }
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -46,12 +66,15 @@ const Home = ({ navigation }: { navigation: HomeScreenNavigationProp }) => {
         <Header />
         <PointsSummary points={accumulatedPoints} />
         <PointMovementsList
-          list={data as Product[]}
+          list={filteredData as Product[]}
           error={error}
           isLoading={isLoading}
           navigation={navigation}
         />
-        <CustomButton buttonText="Todos" />
+        <ButtonFilters
+          selectedFilter={selectedFilter}
+          onSelectedFilter={handleSelectedFilter}
+        />
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
@@ -64,8 +87,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8F8F8",
   },
   contentContainer: {
+    justifyContent: "space-between",
     paddingHorizontal: 20,
-    paddingBottom: 40,
   },
   buttonText: {
     fontWeight: "800",

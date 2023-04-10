@@ -34,13 +34,13 @@ const PointMovementsList = ({ list, error, isLoading, navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: Platform.OS === "ios" ? "62%" : "48%",
+    height: Platform.OS === "ios" ? "62%" : "50%",
   },
   contentContainer: {
     backgroundColor: "#FFFFFF",
     paddingHorizontal: 10,
     paddingVertical: 20,
-    marginBottom: Platform.OS === "ios" ? 43 : 23,
+    marginBottom: 43,
     borderRadius: 10,
   },
 });

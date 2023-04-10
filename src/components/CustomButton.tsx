@@ -1,4 +1,4 @@
-import { Pressable, PressableProps, StyleSheet } from "react-native";
+import { View, Pressable, PressableProps, StyleSheet } from "react-native";
 
 import CustomText from "./CustomText";
 
@@ -8,13 +8,18 @@ interface Props {
 
 const CustomButton = ({ buttonText, ...props }: Props & PressableProps) => {
   return (
-    <Pressable style={styles.button} {...props}>
-      <CustomText style={styles.buttonText}>{buttonText}</CustomText>
-    </Pressable>
+    <View style={styles.buttonContainer}>
+      <Pressable style={styles.button} {...props}>
+        <CustomText style={styles.buttonText}>{buttonText}</CustomText>
+      </Pressable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    flex: 1,
+  },
   button: {
     backgroundColor: "#334FFA",
     height: 50,
