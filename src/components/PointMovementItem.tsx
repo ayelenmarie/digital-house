@@ -34,10 +34,10 @@ const PointMovementItem = ({
         <CustomText
           style={[
             styles.pointsIndicator,
-            isRedemption ? styles.positivePoint : styles.negativePoint,
+            isRedemption ? styles.negativePoint : styles.positivePoint,
           ]}
         >
-          {isRedemption ? `+` : `-`}
+          {isRedemption ? `-` : `+`}
         </CustomText>
         <CustomText style={styles.pointsText}>{points}</CustomText>
       </View>

@@ -1,12 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
 import { RootStackParamList } from "./Home";
 import CustomButton from "./components/CustomButton";
@@ -17,8 +10,6 @@ type Props = NativeStackScreenProps<RootStackParamList, "ProductDetails">;
 const ProductDetails = ({ route, navigation }: Props) => {
   const { item } = route.params;
   const { image, createdAt, points } = item;
-
-  console.log(route);
 
   return (
     <ScrollView
