@@ -26,6 +26,7 @@ All done! You will now have the application up and running on your mobile device
 - Add more tests, maybe an e2e one with Detox.
 - Improve data handling by adding the current month filter to show correct data.
 - Replace API's image URLs for non-dynamic ones so they can persist throughout the application.
+- Add Styled Components to proper handle reusable styles and theming.
 - Add i18n to handle texts and possible translations.
 
 Made by [Ayelen Guini](https://www.linkedin.com/in/ayelenmarie/) with 💜 and 😸s!
