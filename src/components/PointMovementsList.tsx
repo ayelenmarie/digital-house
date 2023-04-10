@@ -8,7 +8,7 @@ import { Product } from "../types";
 
 interface Props {
   list: Product[];
-  error: Error;
+  error?: Error;
   isLoading: boolean;
   navigation: HomeScreenNavigationProp;
 }

@@ -6,7 +6,7 @@ const ListFooter = ({
   error,
 }: {
   isLoading: boolean;
-  error: Error;
+  error?: Error;
 }) => {
   const hasError = isError(error);
 
@@ -15,7 +15,9 @@ const ListFooter = ({
       {hasError && !isLoading && (
         <Text>Ha ocurrido un error. Por favor, intentalo nuevamente.</Text>
       )}
-      {isLoading && <ActivityIndicator color="#334FFA" size="large" />}
+      {isLoading && (
+        <ActivityIndicator testID="list-spinner" color="#334FFA" size="large" />
+      )}
     </>
   );
 };
