@@ -25,7 +25,7 @@ https://user-images.githubusercontent.com/36776624/230995778-7b8a73e1-5681-4bca-
 
 - In the `<PointsSummary />` component you can see there is a hardcoded 'Diciembre' text stating a specific month. This is because the Figma file nor the challenge instructions stated what data to show exactly. So I decided to filter API's data to show only the one from December. I asume this could be rethinked product-wise to include the ongoing month and its corresponding data instead.
 
-- The images rendered in both the List and Details page come from a dynamic link based on the category of the image the url has (e.g: 'https://loremflickr.com/640/480/transport'). That is why you'd see that when pressing on an item the picture showned on the details page is not the same that on the list page. This could also be an improvement for this challenge where I could have somehow cached the image to show the same one.
+- The images rendered in both the List and Details page come from a dynamic link based on the category of the image the url has (e.g: 'https://loremflickr.com/640/480/transport'). That is why you'd see that when pressing on an item the picture shown on the details page is not the same that on the list page. This could also be an improvement for this challenge where I could have somehow cached the image to show the same one.
 
 - On the details page you can see that the image is fitting only the center of the white container. This is because I wanted to mimick exactly what was showned on the Figma file with the placeholder Image. I would have fitted the image into the whole container instead but wanted to take a pixel-perfect approach.
 
