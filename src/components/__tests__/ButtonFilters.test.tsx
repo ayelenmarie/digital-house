@@ -24,7 +24,7 @@ test("Shows correct ALL button when passing Filter.GAINED", async () => {
   expect(allButtonLabel).toBeTruthy();
 });
 
-test.only("Shows correct ALL button when passing Filter.REDEEMED", async () => {
+test("Shows correct ALL button when passing Filter.REDEEMED", async () => {
   const { queryByText } = render(
     <ButtonFilters
       selectedFilter={Filter.REDEEMED}
